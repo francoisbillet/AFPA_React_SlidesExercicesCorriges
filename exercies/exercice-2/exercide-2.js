@@ -16,3 +16,26 @@ const bars = [
 
 // Résultat attendu
 // 41.21
+
+const getSumMostExpensiveBeersFromBars = bars => {
+  const PintesPrices = bars.map(bar => {
+    return bar.allPintesPrices;
+  });
+  const maxList = PintesPrices.map(element => {
+    return element.reduce((acc, item) => (acc > item ? acc : item), 0);
+  });
+  return maxList.reduce((acc, item) => acc + item, 0);
+};
+
+console.log(getSumMostExpensiveBeersFromBars(bars));
+
+const getPricesAllExpensivePints = bars => {
+  let price = 0;
+  bars.forEach(bar => {
+    const expensivePrice = Math.max(...bar.allPintesPrices);
+    price += expensivePrice;
+  });
+  return price;
+};
+
+console.log(getPricesAllExpensivePints(bars));

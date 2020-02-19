@@ -19,3 +19,16 @@ const bars = [
 //   "un bar de test",
 //   "un bar de lta"
 // ];
+
+const BarsWithLetterT = bars => {
+  return bars.filter(bar => bar.name.includes("t"));
+};
+
+console.log(BarsWithLetterT(bars));
+
+const BarsWithLetterT2 = bars => {
+  const barNames = bars.map(bar => bar.name);
+  return barNames.filter(name => name.includes("t"));
+};
+
+console.log(BarsWithLetterT2(bars));
