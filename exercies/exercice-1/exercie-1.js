@@ -20,3 +20,26 @@ const bars = [
 //   { id: 4, name: "un bar de par", allPintesPrices: [3.95, 3.95, 4, 5.5] },
 //   { id: 6, name: "un bar de bi", allPintesPrices: [4.5, 4.55, 4.95, 3.5] }
 // ];
+
+const BarsAvecPintesMoinsDe5Euros = bars => {
+  return bars
+    .map(bar => {
+      const filteredBar = {
+        id: bar.id,
+        name: bar.name,
+        allPintesPrices: bar.allPintesPrices.filter(prix => prix < 5)
+      };
+      return filteredBar;
+    })
+    .filter(bar => bar.allPintesPrices.length !== 0);
+};
+
+// console.log(BarsAvecPintesMoinsDe5Euros(bars));
+
+const getBarsWithBadPints = bars => {
+  return bars.filter(bar => {
+    return bar.allPintesPrices.find(price => price < 5);
+  });
+};
+
+console.log(getBarsWithBadPints(bars));
